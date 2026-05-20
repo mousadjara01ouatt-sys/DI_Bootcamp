@@ -1,7 +1,7 @@
 # Exercice 1
 print('Hello world\n' * 4)
 
-# Exercice 2
+## Exercice 2 
 result = (99**3) * 8
 print(result)
 
