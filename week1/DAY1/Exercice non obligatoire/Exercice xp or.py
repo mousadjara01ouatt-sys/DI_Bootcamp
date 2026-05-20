@@ -10,3 +10,12 @@ else:
     print(" Winter !")
     
     
+ #Exercice2
+for i in range(1, 21):
+    print(i) 
+
+for i in range(1, 21, 2):
+    print(i)    
+    
+     
+#Exercice3
