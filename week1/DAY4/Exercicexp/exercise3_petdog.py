@@ -4,18 +4,22 @@ from exercise2_dog import Dog
 
 class PetDog(Dog):
     def __init__(self, name, age, weight):
+        """Initialise un chien domestique, non entraîné par défaut."""
         super().__init__(name, age, weight)
         self.trained = False
 
     def train(self):
+        """Entraîne le chien en lui faisant aboyer."""
         print(self.bark())
         self.trained = True
 
     def play(self, *args):
+        """Fait jouer le chien avec d'autres chiens."""
         dog_names = ', '.join(args)
-        print(f'{dog_names} all play together')
+        print(f'{self.name}, {dog_names} all play together')
 
     def do_a_trick(self):
+        """Fait faire un tour aléatoire au chien s'il est entraîné."""
         if self.trained:
             tricks = ["does a barrel roll", "stands on his back legs", "shakes your hand", "plays dead"]
             print(f'{self.name} {random.choice(tricks)}')
