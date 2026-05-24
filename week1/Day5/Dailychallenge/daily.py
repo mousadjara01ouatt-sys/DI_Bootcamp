@@ -1,7 +1,9 @@
 import math
+import functools
 import turtle
 
 
+@functools.total_ordering
 class Circle:
 
     def __init__(self, radius=None, diameter=None):
@@ -10,7 +12,7 @@ class Circle:
         elif diameter is not None:
             self.radius = diameter / 2
         else:
-            raise ValueError("Vous devez fournir un rayon ou un diametre.")
+            raise ValueError("A radius or a diameter must be provided.")
 
     @property
     def diameter(self):
@@ -28,14 +30,11 @@ class Circle:
     def __add__(self, other):
         return Circle(radius=self.radius + other.radius)
 
-    def __gt__(self, other):
-        return self.radius > other.radius
+    def __eq__(self, other):
+        return self.radius == other.radius
 
     def __lt__(self, other):
         return self.radius < other.radius
-
-    def __eq__(self, other):
-        return self.radius == other.radius
 
 
 # --- Tests ---
@@ -44,7 +43,7 @@ c2 = Circle(radius=3)
 c3 = Circle(diameter=10)
 c4 = Circle(radius=7)
 
-print("=== Affichage ===")
+print("=== Display ===")
 print(c1)
 print(c2)
 
@@ -52,12 +51,12 @@ print("\n=== Addition ===")
 c5 = c1 + c2
 print(f"c1 + c2 = {c5}")
 
-print("\n=== Comparaisons ===")
+print("\n=== Comparisons ===")
 print(f"c1 > c2 : {c1 > c2}")
 print(f"c1 < c2 : {c1 < c2}")
 print(f"c1 == c3 : {c1 == c3}")
 
-print("\n=== Tri d'une liste ===")
+print("\n=== Sorted list ===")
 circles = [c4, c2, c1, c3]
 circles_sorted = sorted(circles)
 for c in circles_sorted:
@@ -67,7 +66,7 @@ for c in circles_sorted:
 # --- Bonus Turtle ---
 def draw_circles(circles):
     screen = turtle.Screen()
-    screen.title("Cercles tries")
+    screen.title("Sorted Circles")
     screen.bgcolor("white")
 
     t = turtle.Turtle()
