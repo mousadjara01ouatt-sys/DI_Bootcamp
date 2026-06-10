@@ -40,7 +40,7 @@ class Farm:
             else:
                 named.append(animal)
 
-        # On ajoute "and" avant le dernier animal
+
         if len(named) > 1:
             result = ", ".join(named[:-1]) + f" and {named[-1]}"
         else:
